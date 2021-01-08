@@ -8,6 +8,6 @@ urlpatterns = [
     path('list/', tweets_list, name='tweets-list'),
     path('<int:pk>/', tweet_detail, name='tweet-detail'),
     path('add/', add_tweet, name='add-tweet'),
-    path('update/<int:pk>', update_tweet, name='update-tweet'),
-    path('delete/<int:pk>', delete_tweet, name='delete-tweet'),
+    path('update/<int:pk>/', update_tweet, name='update-tweet'),
+    path('delete/<int:pk>/', delete_tweet, name='delete-tweet'),
 ]

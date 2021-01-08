@@ -1,0 +1,31 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+{% block body %}
+    <h1>Tweets</h1>
+    <a role="button" class="btn btn-success" href="{% url 'add-tweet' %}"> + Add new tweet</a><br>
+    <br>
+    <table class="table">
+      <thead >
+        <tr>
+          <th >Content</th>
+          <th >Image</th>
+          <th >Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tweet in tweets %}
+            <tr>
+                <td>{% if tweet.id %}{{ tweet.tweet_text }}{% endif %}</td>
+                <td>{% if tweet.tweet_image %}<img src="{{ tweet.image.url }}" width="100" height="100">{% endif %}</td>
+                <td>
+                    {% if request.user.is_authenticated and tweet.author == request.user %}
+                        <a class="btn btn-success btn-sm" role="button" href="{% url 'update-tweet' tweet.id %}">Update tweet</a> 
+                        <a class="btn btn-secondary btn-sm" role="button" href="{% url 'delete-tweet' tweet.id %}">Delete tweet</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock body %}

@@ -1,0 +1,21 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block body %}
+    <h1>Наш блог</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Категория</th>
+          <th scope="col">Количество публикаций</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for category in categories %}
+            <tr>
+                <td><a href="{% url 'posts-list' %}?category={{ category.slug }}">{{ category.title }}</a></td>
+                <td>{{ category.posts.count }}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock body %}
