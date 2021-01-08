@@ -5,7 +5,9 @@ from .models import Tweet
 from .forms import AddPostForm, UpdatePostForm
 
 def home_view(request):
-    return HttpResponse('<h1> Welcome to TwitterClone </h1>')
+    return render(
+        request, 'twits/home_page.html'
+    )
 
 
 def tweets_list(request):
@@ -50,4 +52,4 @@ def delete_tweet(request, pk):
     if request.method == 'POST':
         tweet.delete()
         return redirect('home-page')
-    return render(request, 'twits/delete_tweet.html')
+    return render(request, 'twits/delete_tweet.html', {'tweet': tweet})
