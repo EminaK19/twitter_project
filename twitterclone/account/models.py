@@ -48,8 +48,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name       = models.CharField(max_length=60, default='')
     date_joined     = models.DateTimeField(default=timezone.now)
     active       = models.BooleanField(default=True)
-    staff        = models.BooleanField(default=False)
-    admin        = models.BooleanField(default=False)
+    staff        = models.BooleanField(default=True)
+    admin        = models.BooleanField(default=True)
     activation_code = models.CharField(max_length=36, blank=True)
 
     USERNAME_FIELD = 'email'
@@ -92,11 +92,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 
-# class Profile(models.Model):
-#     # adds extra data
-#     user      = models.OneToOneField(User)
-#     birthdate = models.DateField()
-    # image     = models.ImageField()
-    # city      = models.ImageField
+
 
 
