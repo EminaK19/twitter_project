@@ -7,7 +7,7 @@ from .models import Tweet
 class AddPostForm(forms.ModelForm):
     class Meta:
         model = Tweet
-        fields = ('tweet_text', 'tweet_image')
+        fields = ('tweet_text', 'tweet_image', 'author')
         exclude = ('created_at', 'updated_at')
 
 
