@@ -1,13 +1,16 @@
-{% extends 'includes/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
-{% block body %}
+{% block content %}
     <h3>Author: {{ tweet.author.username }}</h3><br>
     <p>{{ tweet.tweet_text }}</p><br>
     {% if tweet.tweet_image %}<img width="400" height="400" src="{{ tweet.image.url }}">{% endif %}<br>
     <p>Опубликовано: {{ tweet.created_at }}</p>
     <p>Изменено: {{ tweet.updated_at }}</p>
-    {% if user_has_permission %}
-        <a href="{% url 'update-tweet' tweet.id %}">Update tweet</a> 
-        <a href="{% url 'delete-tweet' tweet.id %}">Delete tweet</a>
-    {% endif %}
-{% endblock body %}
+    
+    <a href="{% url 'update-tweet' tweet.id %}">Update tweet</a> 
+    <a href="{% url 'delete-tweet' tweet.id %}">Delete tweet</a>
+    
+{% endblock content %}
+
+<!-- {% if user_has_permission %} -->
+<!-- {% endif %} -->

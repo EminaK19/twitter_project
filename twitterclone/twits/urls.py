@@ -10,4 +10,6 @@ urlpatterns = [
     path('add/', add_tweet, name='add-tweet'),
     path('update/<int:pk>/', update_tweet, name='update-tweet'),
     path('delete/<int:pk>/', delete_tweet, name='delete-tweet'),
+    path('loading/', loading, name='index'),
+    path('search/', search_posts, name='search'),
 ]

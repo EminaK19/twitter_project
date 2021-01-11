@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'twitterclone.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'twitter_db',
-        'USER': 'twitter_user',
-        'PASSWORD': 'User-0000',
+        'NAME': 'twitter_database',
+        'USER': 'twt_user',
+        'PASSWORD': 'User-000',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -131,5 +131,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 AUTH_USER_MODEL = 'account.User'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 

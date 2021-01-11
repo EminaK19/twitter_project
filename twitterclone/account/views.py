@@ -3,13 +3,13 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import FormView, View
 from django.urls import reverse_lazy
 
-from .forms import RegisterForm
+from .forms import UserRegistrationForm
 from .utils import send_activation_email
 
 
 class RegisterView(FormView):
     """"Create User"""
-    form_class = RegisterForm
+    form_class = UserRegistrationForm
     success_url = reverse_lazy('login')
     template_name = 'account/registration.html'
 

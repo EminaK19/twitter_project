@@ -1,11 +1,11 @@
-{% extends 'includes/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
-{% block body %}
-<h1>Изменить публикацию</h1>
+{% block content %}
+<h1 align="center">Изменить публикацию</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ tweet_form.as_p }}
     <button type="submit">Сохранить изменения</button>
 </form>
-{% endblock body %}
+{% endblock content %}
