@@ -3,6 +3,9 @@
 
 {% block content %}
 
+
+
+
 <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'img/hero.jpg' %}">
   <form class="d-flex tm-search-form">
       <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
@@ -39,10 +42,3 @@
 
     {% include "twits/pagination.html" with page=tweets %}
 {% endblock content %}
-
-
-
-{% if request.user.is_authenticated and tweet.author == request.user %}
-    <a class="btn btn-success btn-sm" role="button" href="{% url 'update-tweet' tweet.id %}">Update tweet</a> 
-    <a class="btn btn-secondary btn-sm" role="button" href="{% url 'delete-tweet' tweet.id %}">Delete tweet</a>
-{% endif %}
